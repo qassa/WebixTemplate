@@ -9,49 +9,173 @@
 
 <body>
     <script type="text/javascript" charset="utf-8">
+        var path = "resource/";
+
         webix.ui({
             view: "layout",
             rows: [{
+                padding: 10,
                 cols: [{
                     view: "button",
-                    value: "Авиатехника"
+                    value: "Авиатехника",
+                    height: 53,
+                    width: 150
                 }, {
                     view: "button",
-                    value: "Рейсы"
+                    value: "Рейсы",
+                    height: 53,
+                    width: 150
                 }, {
                     view: "button",
-                    value: "Персонал"
+                    value: "Персонал",
+                    height: 53,
+                    width: 150
                 }, {
                     view: "button",
-                    value: "Пассажиры"
+                    value: "Пассажиры",
+                    height: 53,
+                    width: 150
                 }, {
                     view: "button",
-                    value: "График рейсов"
+                    value: "График рейсов",
+                    height: 53,
+                    width: 150
                 }, ]
             }, {
                 cols: [{
                     view: "richselect",
                     value: 1,
-                    options: field_select
+                    options: field_select,
+                    width: 200
                 }, {
                     view: "richselect",
                     value: 1,
-                    options: condition_select
+                    options: condition_select,
+                    width: 200
                 }, {
                     view: "text",
-                    value: "Значение фильтра"
+                    value: "Значение фильтра",
+                    width: 200
                 }, {
                     view: "richselect",
                     value: 1,
-                    options: records_select
+                    options: records_select,
+                    width: 200
                 }, {
                     view: "button",
                     value: "Применить",
-                    type: "form"
+                    type: "form",
+                    width: 100
                 }, {
                     view: "button",
                     value: "Сбросить",
-                    type: "form"
+                    type: "form",
+                    width: 100
+                }]
+            }, {
+                view: "layout",
+                rows: [{
+                    cols: [{
+                        view: "layout",
+                        gravity: 2.2,
+                        padding: 10,
+                        rows: [{
+                            type: "header",
+                            template: "Авиатехника",
+                            css: {
+                                "font-family": "Tahoma",
+                                "font-size": "22px",
+                                "text-align": "center"
+                            }
+                        }, {
+                            cols: [{
+                                view: "button",
+                                type: "image",
+                                label: "Добавить",
+                                image: path + "add.png",
+                                height: 40,
+                                width: 150
+                            }, {
+                                view: "button",
+                                type: "image",
+                                label: "Изменить",
+                                image: path + "edit.png",
+                                height: 40,
+                                width: 150
+                            }, {
+                                view: "button",
+                                type: "image",
+                                label: "Удалить",
+                                image: path + "remove.png",
+                                height: 40,
+                                width: 150
+                            }, {
+
+                            }]
+                        }, {
+                            view: "datatable",
+                            //обязательное свойство autoheight, без него таблица не будет загружена
+                            autoheight: true,
+                            select: "row",
+                            multiselect: true,
+                            resizeColumn: true,
+                            scrollY: true,
+                            columns: [{
+                                id: "id",
+                                template: "{common.checkbox()}",
+                                header: "",
+                                width: 50
+                            }, {
+                                id: "number_data",
+                                header: "№",
+                                //width: 150
+                            }, {
+                                id: "type_vs_data",
+                                header: "Тип воздушного судна",
+                                width: 170
+                            }, {
+                                id: "preview_data",
+                                template: "<img src='resource/#preview_data#.jpg' style='width:35px'/>",
+                                header: "Превью",
+                                width: 170
+                            }, {
+                                id: "techstate_data",
+                                header: "Техническое состояние",
+                                width: 220,
+                            }, {
+                                id: "cruiserSpeed_data",
+                                header: "Крейсерская скорость",
+                                width: 220,
+                            }, {
+                                id: "maxWeightCapacity_data",
+                                header: "Грузоподъемность",
+                                width: 170,
+                            }, {
+                                id: "maxFlightHeight_data",
+                                header: "Максимальная высота полета",
+                                width: 250,
+                            }, {
+                                id: "distance_data",
+                                header: "Дальность полета",
+                                width: 170,
+                            }, {
+                                id: "fuelState_data",
+                                header: "Уровень топлива",
+                                width: 170,
+                            }, {
+                                id: "airCompanyOwner_data",
+                                header: "Авиакомпания",
+                                width: 170,
+                            }],
+                            data: datatable
+                        }]
+                    }, {
+                        view: "layout",
+                        padding: 10,
+                        rows: [{
+                            template: "text",
+                        }]
+                    }]
                 }]
             }]
         });
