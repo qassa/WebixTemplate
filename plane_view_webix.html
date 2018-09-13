@@ -116,7 +116,7 @@
                             }]
                         }, {
                             view: "scrollview",
-                            id: "verses",
+                            id: "table",
                             body: {
                                 view: "datatable",
                                 //обязательное свойство autoheight, без него таблица не будет загружена
@@ -177,7 +177,44 @@
                         view: "layout",
                         padding: 10,
                         rows: [{
-                            template: "text",
+                            template: "<img src='resource/fly_boeing.jpg' style='width:225px; padding:10px'/>",
+                        }, {
+                            view: "scrollview",
+                            id: "detail",
+                            scroll: "y",
+                            body: {
+                                rows: [{
+                                    view: "label",
+                                    template: "№",
+                                }, {
+                                    view: "text",
+                                    value: "32",
+                                }, {
+                                    view: "label",
+                                    template: "Тип воздушного судна",
+                                }, {
+                                    view: "text",
+                                    value: "BlindJet 543",
+                                }, {
+                                    view: "label",
+                                    template: "Техническое состояние",
+                                }, {
+                                    view: "text",
+                                    value: "A-check 23.08.18",
+                                }, {
+                                    view: "label",
+                                    template: "Крейсерская скорость",
+                                }, {
+                                    view: "text",
+                                    value: "850",
+                                }, {
+                                    view: "label",
+                                    template: "Грузоподъемность",
+                                }, {
+                                    view: "text",
+                                    value: 47000,
+                                }]
+                            }
                         }]
                     }]
                 }]
