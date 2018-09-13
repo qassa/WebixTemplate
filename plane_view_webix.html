@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" href="http://cdn.webix.com/edge/webix.css" type="text/css">
+    <script src="http://cdn.webix.com/edge/webix.js" type="text/javascript"></script>
+    <script src="data.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript" charset="utf-8">
+        webix.ui({
+            view: "layout",
+            rows: [{
+                cols: [{
+                    view: "button",
+                    value: "Авиатехника"
+                }, {
+                    view: "button",
+                    value: "Рейсы"
+                }, {
+                    view: "button",
+                    value: "Персонал"
+                }, {
+                    view: "button",
+                    value: "Пассажиры"
+                }, {
+                    view: "button",
+                    value: "График рейсов"
+                }, ]
+            }, {
+                cols: [{
+                    view: "richselect",
+                    value: 1,
+                    options: field_select
+                }, {
+                    view: "richselect",
+                    value: 1,
+                    options: condition_select
+                }, {
+                    view: "text",
+                    value: "Значение фильтра"
+                }, {
+                    view: "richselect",
+                    value: 1,
+                    options: records_select
+                }, {
+                    view: "button",
+                    value: "Применить",
+                    type: "form"
+                }, {
+                    view: "button",
+                    value: "Сбросить",
+                    type: "form"
+                }]
+            }]
+        });
+    </script>
+</body>
+
+</html>
