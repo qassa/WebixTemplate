@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="http://cdn.webix.com/edge/webix.css" type="text/css">
     <script src="http://cdn.webix.com/edge/webix.js" type="text/javascript"></script>
     <script src="data.js"></script>
@@ -95,6 +96,7 @@
                                 type: "image",
                                 label: "Добавить",
                                 image: path + "add.png",
+                                click: ("$$('my_win').show();"),
                                 height: 40,
                                 width: 150,
                             }, {
@@ -222,6 +224,112 @@
                 }]
             }]
         });
+
+        webix.ui({
+
+            view: "window",
+            modal: true,
+            position: "center",
+            width: 751,
+            id: "my_win",
+            head: {
+                view: "button",
+                label: "Закрыть",
+                align: "right",
+                width: 70,
+                click: ("$$('my_win').hide();")
+            },
+            body: {
+                view: "layout",
+                padding: 5,
+                rows: [{
+                    cols: [{
+                        view: "label",
+                        template: "№"
+                    }, {
+                        view: "label",
+                        template: "Тип воздушного судна",
+                    }, {
+                        view: "label",
+                        template: "Превью"
+                    }],
+                }, {
+                    cols: [{
+                        view: "text",
+                        width: 200,
+                    }, {
+                        view: "text",
+                        width: 200
+                    }, {
+                        view: "button",
+                        label: "Выбрать файл...",
+                        width: 200
+                    }]
+                }, {
+                    cols: [{
+                        view: "label",
+                        template: "Техническое состояние"
+                    }, {
+                        view: "label",
+                        template: "Крейсерская скорость",
+                    }, {
+                        view: "label",
+                        template: "Грузоподъемность"
+                    }],
+                }, {
+                    cols: [{
+                        view: "text",
+                        width: 200
+                    }, {
+                        view: "text",
+                        width: 200
+                    }, {
+                        view: "text",
+                        width: 200
+                    }],
+                }, {
+                    cols: [{
+                        view: "label",
+                        template: "Максимальная высота полета"
+                    }, {
+                        view: "label",
+                        template: "Дальность полета",
+                    }, {
+                        view: "label",
+                        template: "Уровень топлива"
+                    }],
+                }, {
+                    cols: [{
+                        view: "text",
+                        width: 200
+                    }, {
+                        view: "text",
+                        width: 200
+                    }, {
+                        view: "text",
+                        width: 200
+                    }],
+                }, {
+                    cols: [{
+                        view: "label",
+                        template: "Авиакомпания"
+                    }]
+                }, {
+                    cols: [{
+                        view: "text",
+                        width: 200
+                    }]
+                }, {
+                    view: "button",
+                    label: "Сохранить",
+                    width: 95,
+                    align: "center"
+                }]
+            }
+
+        });
+
+        //$$("my_win").show();
     </script>
 </body>
 
